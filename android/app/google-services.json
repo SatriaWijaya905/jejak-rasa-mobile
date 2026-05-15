@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "875461394072",
+    "project_id": "mobile-jejakrasa",
+    "storage_bucket": "mobile-jejakrasa.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:875461394072:android:b29b09b07904c83f5c9aed",
+        "android_client_info": {
+          "package_name": "com.example.jejakrasa_mobile_database"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAVyd1ji7s3vY-Vqr9TLpXmEZl_SP0-PMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
