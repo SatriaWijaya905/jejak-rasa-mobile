@@ -8,4 +8,5 @@ abstract class Routes {
   static const RESEP = '/resep';
   static const PROFIL = '/profil';
   static const FAVORIT = '/favorit';
+  static const DETAIL_RESEP = '/detail-resep';
 }

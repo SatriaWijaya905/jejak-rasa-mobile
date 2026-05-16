@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jejakrasa_mobile_database/app/modules/home/views/homepage_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -13,9 +14,9 @@ class HomeView extends GetView<HomeController> {
       body: Obx(() => _buildBody(controller.currentIndex.value)),
       bottomNavigationBar: Obx(
         () => Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             color: Colors.black87,
-            borderRadius: const BorderRadius.only(
+            borderRadius: BorderRadius.only(
               topLeft: Radius.circular(24),
               topRight: Radius.circular(24),
             ),
@@ -55,7 +56,7 @@ class HomeView extends GetView<HomeController> {
   Widget _buildBody(int index) {
     switch (index) {
       case 0:
-        return _buildHome();
+        return const HomepageView();
       case 1:
         return _buildResep();
       case 2:
@@ -63,20 +64,8 @@ class HomeView extends GetView<HomeController> {
       case 3:
         return _buildProfil();
       default:
-        return _buildHome();
+        return const HomepageView();
     }
-  }
-
-  Widget _buildHome() {
-    return SafeArea(
-      child: Center(
-        child: Text(
-          'Home Page\n(Coming Soon)',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(fontSize: 18),
-        ),
-      ),
-    );
   }
 
   Widget _buildResep() {

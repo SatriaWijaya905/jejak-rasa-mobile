@@ -1,12 +1,14 @@
 import 'package:get/get.dart';
 import 'package:jejakrasa_mobile_database/app/modules/auth/bindings/auth_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/auth/views/auth_view.dart';
+import 'package:jejakrasa_mobile_database/app/modules/detail_resep/bindings/detail_resep_binding.dart';
+import 'package:jejakrasa_mobile_database/app/modules/detail_resep/views/detail_resep_view.dart';
+import 'package:jejakrasa_mobile_database/app/modules/home/bindings/home_binding.dart';
+import 'package:jejakrasa_mobile_database/app/modules/home/views/home_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/onboarding/bindings/onboarding_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/onboarding/views/onboarding_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/splash/bindings/splash_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/splash/views/splash_view.dart';
-import 'package:jejakrasa_mobile_database/app/modules/home/bindings/home_binding.dart';
-import 'package:jejakrasa_mobile_database/app/modules/home/views/home_view.dart';
 
 part 'app_routes.dart';
 
@@ -33,6 +35,11 @@ abstract class AppPages {
       name: Routes.HOME,
       page: () => const HomeView(),
       binding: HomeBinding(),
+    ),
+    GetPage(
+      name: Routes.DETAIL_RESEP,
+      page: () => const DetailResepView(),
+      binding: DetailResepBinding(),
     ),
   ];
 }

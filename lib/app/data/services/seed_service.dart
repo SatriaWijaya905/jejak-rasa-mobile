@@ -1,0 +1,121 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+
+class SeedService {
+  final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  Future<void> seedResep() async {
+    final List<Map<String, dynamic>> resepList = [
+      {
+        'nama_resep': 'Gado-gado',
+        'foto_cover': '',
+        'provinsi': 'Jawa',
+        'waktu_masak': '30 Menit',
+        'tingkat_kesulitan': 'Mudah',
+        'rating': 4.5,
+        'jumlah_review': 200,
+        'is_popular': true,
+        'is_featured': true,
+        'bahan': ['Tahu', 'Tempe', 'Kangkung', 'Kacang'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Rawon',
+        'foto_cover': '',
+        'provinsi': 'Jawa',
+        'waktu_masak': '45 Menit',
+        'tingkat_kesulitan': 'Menengah',
+        'rating': 4.7,
+        'jumlah_review': 350,
+        'is_popular': true,
+        'is_featured': false,
+        'bahan': ['Daging sapi', 'Kluwek', 'Bumbu halus'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Ayam Betutu',
+        'foto_cover': '',
+        'provinsi': 'Bali',
+        'waktu_masak': '2 Jam',
+        'tingkat_kesulitan': 'Sulit',
+        'rating': 4.8,
+        'jumlah_review': 180,
+        'is_popular': false,
+        'is_featured': false,
+        'bahan': ['Ayam', 'Base genep', 'Daun pisang'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Soto Lamongan',
+        'foto_cover': '',
+        'provinsi': 'Jawa',
+        'waktu_masak': '30 Menit',
+        'tingkat_kesulitan': 'Mudah',
+        'rating': 4.6,
+        'jumlah_review': 290,
+        'is_popular': true,
+        'is_featured': false,
+        'bahan': ['Ayam', 'Mie', 'Telur', 'Bumbu'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Sate Padang',
+        'foto_cover': '',
+        'provinsi': 'Sumatera',
+        'waktu_masak': '1 Jam',
+        'tingkat_kesulitan': 'Menengah',
+        'rating': 4.6,
+        'jumlah_review': 310,
+        'is_popular': true,
+        'is_featured': false,
+        'bahan': ['Daging sapi', 'Bumbu kuning', 'Tusuk sate'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Pempek',
+        'foto_cover': '',
+        'provinsi': 'Sumatera',
+        'waktu_masak': '45 Menit',
+        'tingkat_kesulitan': 'Menengah',
+        'rating': 4.5,
+        'jumlah_review': 260,
+        'is_popular': true,
+        'is_featured': false,
+        'bahan': ['Ikan', 'Tepung sagu', 'Cuko'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+      {
+        'nama_resep': 'Gulai Ikan Patin',
+        'foto_cover': '',
+        'provinsi': 'Sumatera',
+        'waktu_masak': '40 Menit',
+        'tingkat_kesulitan': 'Menengah',
+        'rating': 4.4,
+        'jumlah_review': 150,
+        'is_popular': false,
+        'is_featured': false,
+        'bahan': ['Ikan patin', 'Santan', 'Bumbu gulai'],
+        'langkah': [],
+        'author_uid': '',
+        'created_at': Timestamp.now(),
+      },
+    ];
+
+    for (var resep in resepList) {
+      await _firestore.collection('resep').add(resep);
+    }
+
+    print('Seed data berhasil!');
+  }
+}
