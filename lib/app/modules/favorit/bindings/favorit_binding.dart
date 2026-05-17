@@ -1,12 +1,9 @@
 import 'package:get/get.dart';
-
-import '../controllers/favorit_controller.dart';
+import 'package:jejakrasa_mobile_database/app/modules/favorit/controllers/favorit_controller.dart';
 
 class FavoritBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<FavoritController>(
-      () => FavoritController(),
-    );
+    Get.put<FavoritController>(FavoritController());
   }
 }

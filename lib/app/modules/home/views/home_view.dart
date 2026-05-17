@@ -1,7 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jejakrasa_mobile_database/app/modules/favorit/bindings/favorit_binding.dart';
+import 'package:jejakrasa_mobile_database/app/modules/favorit/views/favorit_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/home/views/homepage_view.dart';
+import 'package:jejakrasa_mobile_database/app/modules/profil/bindings/profil_binding.dart';
+import 'package:jejakrasa_mobile_database/app/modules/profil/views/profil_view.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -9,6 +13,9 @@ class HomeView extends GetView<HomeController> {
 
   @override
   Widget build(BuildContext context) {
+    ProfilBinding().dependencies();
+    FavoritBinding().dependencies();
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Obx(() => _buildBody(controller.currentIndex.value)),
@@ -60,9 +67,9 @@ class HomeView extends GetView<HomeController> {
       case 1:
         return _buildResep();
       case 2:
-        return _buildFavorit();
+        return const FavoritView();
       case 3:
-        return _buildProfil();
+        return const ProfilView();
       default:
         return const HomepageView();
     }
@@ -73,30 +80,6 @@ class HomeView extends GetView<HomeController> {
       child: Center(
         child: Text(
           'Resep Page\n(Coming Soon)',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(fontSize: 18),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildFavorit() {
-    return SafeArea(
-      child: Center(
-        child: Text(
-          'Favorit Page\n(Coming Soon)',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(fontSize: 18),
-        ),
-      ),
-    );
-  }
-
-  Widget _buildProfil() {
-    return SafeArea(
-      child: Center(
-        child: Text(
-          'Profil Page\n(Coming Soon)',
           textAlign: TextAlign.center,
           style: GoogleFonts.poppins(fontSize: 18),
         ),

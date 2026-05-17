@@ -1,12 +1,9 @@
 import 'package:get/get.dart';
-
-import '../controllers/profil_controller.dart';
+import 'package:jejakrasa_mobile_database/app/modules/profil/controllers/profil_controller.dart';
 
 class ProfilBinding extends Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<ProfilController>(
-      () => ProfilController(),
-    );
+    Get.put<ProfilController>(ProfilController());
   }
 }

@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:jejakrasa_mobile_database/app/modules/auth/bindings/auth_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/auth/views/auth_view.dart';
+import 'package:jejakrasa_mobile_database/app/modules/buat_resep/bindings/buat_resep_binding.dart';
+import 'package:jejakrasa_mobile_database/app/modules/buat_resep/views/buat_resep_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/detail_resep/bindings/detail_resep_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/detail_resep/views/detail_resep_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/home/bindings/home_binding.dart';
@@ -40,6 +42,11 @@ abstract class AppPages {
       name: Routes.DETAIL_RESEP,
       page: () => const DetailResepView(),
       binding: DetailResepBinding(),
+    ),
+    GetPage(
+      name: Routes.BUAT_RESEP,
+      page: () => const BuatResepView(),
+      binding: BuatResepBinding(),
     ),
   ];
 }
