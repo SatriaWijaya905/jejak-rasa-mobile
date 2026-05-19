@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jejakrasa_mobile_database/app/modules/favorit/bindings/favorit_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/favorit/views/favorit_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/home/views/homepage_view.dart';
+import 'package:jejakrasa_mobile_database/app/modules/home/views/kreasi_view.dart';
 import 'package:jejakrasa_mobile_database/app/modules/profil/bindings/profil_binding.dart';
 import 'package:jejakrasa_mobile_database/app/modules/profil/views/profil_view.dart';
 import '../controllers/home_controller.dart';
+
 
 class HomeView extends GetView<HomeController> {
   const HomeView({super.key});
@@ -37,22 +38,10 @@ class HomeView extends GetView<HomeController> {
             selectedItemColor: const Color(0xFFF5A623),
             unselectedItemColor: Colors.grey,
             items: const [
-              BottomNavigationBarItem(
-                icon: Icon(Icons.home),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.menu_book),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.favorite),
-                label: '',
-              ),
-              BottomNavigationBarItem(
-                icon: Icon(Icons.person),
-                label: '',
-              ),
+              BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
+              BottomNavigationBarItem(icon: Icon(Icons.menu_book), label: ''),
+              BottomNavigationBarItem(icon: Icon(Icons.favorite), label: ''),
+              BottomNavigationBarItem(icon: Icon(Icons.person), label: ''),
             ],
           ),
         ),
@@ -65,7 +54,7 @@ class HomeView extends GetView<HomeController> {
       case 0:
         return const HomepageView();
       case 1:
-        return _buildResep();
+        return const KreasiView();
       case 2:
         return const FavoritView();
       case 3:
@@ -73,17 +62,5 @@ class HomeView extends GetView<HomeController> {
       default:
         return const HomepageView();
     }
-  }
-
-  Widget _buildResep() {
-    return SafeArea(
-      child: Center(
-        child: Text(
-          'Resep Page\n(Coming Soon)',
-          textAlign: TextAlign.center,
-          style: GoogleFonts.poppins(fontSize: 18),
-        ),
-      ),
-    );
   }
 }

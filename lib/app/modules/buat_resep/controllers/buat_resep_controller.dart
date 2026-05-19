@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:jejakrasa_mobile_database/app/data/models/resep_model.dart';
+import 'package:jejakrasa_mobile_database/app/modules/home/controllers/home_controller.dart';
 
 class BuatResepController extends GetxController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
@@ -91,6 +91,11 @@ class BuatResepController extends GetxController {
         await _firestore.collection('users').doc(uid).update({
           'jumlah_resep': FieldValue.increment(1),
         });
+      }
+
+      // Refresh home controller
+      if (Get.isRegistered<HomeController>()) {
+        Get.find<HomeController>().fetchData();
       }
 
       Get.back();
