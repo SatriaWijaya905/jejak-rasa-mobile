@@ -4,9 +4,13 @@ import 'package:get/get.dart';
 import 'package:jejakrasa_mobile_database/app/data/models/resep_model.dart';
 import 'package:jejakrasa_mobile_database/app/data/models/user_model.dart';
 
+import 'package:jejakrasa_mobile_database/app/services/follow_service.dart';
+
 class ProfilController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;
+
+  final FollowService followService = FollowService();
 
   var user = Rxn<UserModel>();
   var isLoading = false.obs;
@@ -16,6 +20,8 @@ class ProfilController extends GetxController {
   @override
   void onInit() {
     super.onInit();
+
+    // Load awal
     fetchUserData();
     fetchResepSaya();
   }
@@ -47,13 +53,25 @@ class ProfilController extends GetxController {
             .get();
 
         resepSaya.value = snapshot.docs
-            .map((doc) => ResepModel.fromJson(
-                doc.data() as Map<String, dynamic>, doc.id))
+            .map(
+              (doc) => ResepModel.fromJson(
+                doc.data() as Map<String, dynamic>,
+                doc.id,
+              ),
+            )
             .toList();
       }
     } catch (e) {
       Get.snackbar('Error', e.toString());
     }
+  }
+
+  Stream<int> getFollowersCountStream({required String creatorUid}) {
+    return followService.getFollowersCountStream(creatorUid: creatorUid);
+  }
+
+  Stream<int> getFollowingCountStream({required String currentUid}) {
+    return followService.getFollowingCountStream(currentUid: currentUid);
   }
 
   Future<void> logout() async {
